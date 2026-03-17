@@ -1,0 +1,609 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    /* Фондағы сурет (images папкасында 111.jpg болуы керек) */
+    background: url('images/111.jpg') no-repeat center center / cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+/* Скриншоттағыдай көкшіл-қара фильтр (Градиент) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(10, 48, 71, 0.75), rgba(10, 48, 71, 0.75));
+    z-index: 1;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.header-contacts {
+    text-align: right;
+}
+
+.phone {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.work-time {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Ортадағы мәтін */
+.hero-content {
+    margin-top: 15vh;
+    max-width: 750px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Үлкен шрифт */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* Кнопкалар */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 18px 45px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-orange {
+    background-color: #FF8533; /* Тилдадағы қызғылт сары */
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Мобильный версия үшін */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .navbar { flex-direction: column; gap: 20px; text-align: center; }
+    .header-contacts { text-align: left; }
+    .hero-btns { flex-direction: column; }
+}
+
+/* Услуги блогына арналған стильдер */
+.services-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.services-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.services-intro {
+    font-size: 18px;
+    color: #444;
+    max-width: 650px;
+    margin: 0 auto 70px;
+    line-height: 1.5;
+}
+
+/* 3 колонканы реттеу */
+.services-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.service-item {
+    flex: 1;
+    text-align: left;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Суретті созбай, әдемі толтырады */
+}
+
+.service-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.service-item p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Мобильді телефондарға арналған (суреттер бірінің астына бірі түседі) */
+@media (max-width: 850px) {
+    .services-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-item {
+        max-width: 450px;
+        margin-bottom: 50px;
+    }
+    .services-title {
+        font-size: 32px;
+    }
+}
+
+.portfolio-section {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Сәл сұрғылт фон, блоктар бөлініп тұруы үшін */
+    text-align: center;
+}
+
+/* 4 колонкалы тор (Grid) */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 тең колонка */
+    gap: 20px; /* Суреттер арасындағы арақашықтық */
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    width: 100%;
+    height: 300px; /* Суреттердің биіктігі бірдей болуы үшін */
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Суретті созбай, ортасынан әдемі қияды */
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+/* Суретті басқанда немесе жақындатқанда эффект */
+.portfolio-item img:hover {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+/* Мобильді телефондарда 2 колонкадан көрсетеді */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .portfolio-item {
+        height: 200px;
+    }
+}
+
+.advantages-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонка */
+    gap: 60px 40px; /* Қатарлар мен бағаналар арасындағы арақашықтық */
+    margin-top: 60px;
+}
+
+.advantage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+}
+
+.adv-number {
+    min-width: 50px;
+    height: 50px;
+    background-color: #FF8533; /* Қызғылт сары шеңбер */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.adv-text h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.adv-text p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Мобильді нұсқа: бірінің астына бірі түседі */
+@media (max-width: 992px) {
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reviews-section {
+    padding: 100px 0;
+    background-color: #ebebeb; /* Скриншоттағы сұр фон */
+}
+
+.reviews-list {
+    max-width: 850px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.review-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.review-avatar {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.review-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px; /* Сәл ғана дөңгеленген шеттер */
+}
+
+.review-bubble {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Сол жақтағы кішкентай "үшбұрыш" (стрелка) */
+.review-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+}
+
+.review-bubble h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.review-bubble p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    font-style: italic;
+}
+
+/* Мобильді нұсқа */
+@media (max-width: 650px) {
+    .review-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .review-bubble::before {
+        display: none; /* Мобильді нұсқада үшбұрышты алып тастаймыз */
+    }
+    .review-bubble {
+        text-align: center;
+    }
+}
+
+.steps-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.steps-wrapper {
+    position: relative;
+    margin-top: 80px;
+    padding-bottom: 20px;
+}
+
+/* Ортадағы қызғылт сары сызық */
+.steps-line {
+    position: absolute;
+    top: 25px; /* Шеңбердің дәл ортасы */
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #FF8533;
+    z-index: 1;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-item {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #FF8533;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 30px;
+    margin-left: 0;
+}
+
+.step-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.step-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    padding-right: 10px;
+}
+
+/* Мобильді нұсқа: сызықты алып тастап, тігінен қою */
+@media (max-width: 850px) {
+    .steps-line {
+        display: none;
+    }
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .step-item {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.faq-section {
+    padding: 100px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-question {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background-color: #fafafa;
+}
+
+.faq-icon {
+    font-size: 24px;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.faq-answer {
+    padding: 0 30px;
+    max-height: 0; /* Басында жабық тұрады */
+    overflow: hidden;
+    text-align: left;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+}
+
+/* Сұрақты басқанда ашылатын класс (JS арқылы) */
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 30px 25px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* "+" белгісін "x" қылып айналдырады */
+}
+
+.faq-footer {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    margin-top: 40px;
+}
+
+.contacts-section {
+    padding: 80px 0;
+    background-color: #f0f0f0; /* Сәл сұрғылт фон */
+    text-align: center;
+}
+
+.contacts-content {
+    margin-bottom: 50px;
+}
+
+.contact-phone {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.contact-domain {
+    font-size: 36px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.office-address {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Әлеуметтік желі иконкалары */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.icon-circle:hover {
+    background-color: #FF8533;
+}
+
+/* Карта контейнері */
+.map-container {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.static-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Мобильді нұсқа */
+@media (max-width: 768px) {
+    .contact-phone { font-size: 28px; }
+    .contact-domain { font-size: 22px; }
+    .map-container { height: 300px; }
+}
